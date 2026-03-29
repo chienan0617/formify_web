@@ -1,0 +1,84 @@
+{
+  "dark_mode": true,
+  "primary": [
+    "#6932a8",
+    "#8247d5"
+  ],
+  "debug_color": "#9d66ff",
+  "debug_color_2": "#32a88f",
+  "default_font_family": "Space Grotesk",
+  "enable_debug_box": true,
+  "enable_liquid_glass": false,
+  "bg1": [
+    "#0a0712",
+    "#FFFFFF"
+  ],
+  "bg1_5": [
+    "#110d1f",
+    "#FAFAFA"
+  ],
+  "bg2": [
+    "#181329",
+    "#F9F9F9"
+  ],
+  "bg3": [
+    "#1f1a33",
+    "#FFFFFF"
+  ],
+  "bg4": [
+    "#2a2440",
+    "#F0F0F0"
+  ],
+  "bg5": [
+    "#362e52",
+    "#E4E4E4"
+  ],
+  "so1": [
+    "#3f3561",
+    "#E4E4E7"
+  ],
+  "tx1": [
+    "#FFFFFF",
+    "#18181B"
+  ],
+  "tx1p": [
+    "#FFFFFF",
+    "#FFFFFF"
+  ],
+  "tx2": [
+    "#b1a6d2",
+    "#71717A"
+  ],
+  "tx2p": [
+    "#9589be",
+    "#A1A1AA"
+  ],
+  "tx3": [
+    "#c7bfdf",
+    "#A1A1AA"
+  ],
+  "tx6": [
+    "#5a4f85",
+    "#D4D4D8"
+  ],
+  "tx6p": [
+    "#7e71ad",
+    "#71717A"
+  ],
+  "background1": [
+    "#0a0712",
+    "#F9FAFB"
+  ],
+  "background2": [
+    "#181329",
+    "#6932a8"
+  ],
+  "background3": [
+    "#05040a",
+    "#FFFFFF"
+  ],
+  "background4": [
+    "#1f1a33",
+    "#E4E4E7"
+  ]
+}
