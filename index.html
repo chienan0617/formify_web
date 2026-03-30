@@ -1,33 +1,20 @@
-<!DOCTYPE html><html><head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+<!DOCTYPE html>
+<html>
+<head>
   <base href="/formify_web/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Form everything quickly">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="formify">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <title>formify</title>
+  <title>Formify - 線上表單</title>
   <link rel="manifest" href="manifest.json">
   <style id="splash-screen-style">
     html {
@@ -38,7 +25,7 @@
       margin: 0;
       min-height: 100%;
       background-color: #111111;
-          background-size: 100% 100%;
+      background-size: 100% 100%;
     }
 
     .center {
@@ -86,11 +73,47 @@
       bottom: 0;
       right: 0;
     }
+
+    /* ================= 新增：現代感載入條的 CSS 樣式 ================= */
+    #custom-loader {
+      position: absolute;
+      top: 65%; /* 放在中央圖片的正下方 */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px; /* 載入條總寬度 */
+      height: 3px;  /* 載入條高度，設定細一點更有質感 */
+      background-color: #2a2a2a; /* 軌道底色（深灰） */
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* 製作光影掃描動畫 */
+    #custom-loader::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%; /* 光影的長度 */
+      height: 100%;
+      /* 使用漸層創造兩側淡化、中間明亮的質感 */
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+      border-radius: 4px;
+      animation: shimmer 1.5s infinite ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% { left: -40%; }
+      100% { left: 100%; }
+    }
+    /* =============================================================== */
+
   </style>
   <script id="splash-screen-script">
     function removeSplashFromWeb() {
       document.getElementById("splash")?.remove();
       document.getElementById("splash-branding")?.remove();
+      // 新增：確保 Flutter 載入完成後，將載入條一併撤掉
+      document.getElementById("custom-loader")?.remove();
       document.body.style.background = "transparent";
     }
   </script>
@@ -102,15 +125,10 @@
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
       <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
   </picture>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
+  <div id="custom-loader"></div>
+
   <script src="flutter_bootstrap.js" async=""></script>
 
-
-</body></html>
+</body>
+</html>

@@ -408,6 +408,7 @@ class CompiledApp {
       _1236: x0 => x0.selectedTrack,
       _1237: x0 => x0.repetitionCount,
       _1238: x0 => x0.frameCount,
+      _1303: (x0,x1,x2,x3) => x0.open(x1,x2,x3),
       _1311: () => globalThis.Intl.DateTimeFormat(),
       _1312: x0 => x0.resolvedOptions(),
       _1313: () => globalThis.Intl.supportedValuesOf,
@@ -457,6 +458,7 @@ class CompiledApp {
       _1345: s => JSON.stringify(s),
       _1346: s => printToConsole(s),
       _1347: (o, p, r) => o.replaceAll(p, () => r),
+      _1348: (o, p, r) => o.replace(p, () => r),
       _1349: Function.prototype.call.bind(String.prototype.toLowerCase),
       _1350: s => s.toUpperCase(),
       _1351: s => s.trim(),
@@ -530,6 +532,7 @@ class CompiledApp {
             constructor, [null, ...args]);
         return new factoryFunction();
       },
+      _1489: (o, p) => p in o,
       _1490: (o, p) => o[p],
       _1491: (o, p, v) => o[p] = v,
       _1492: (o, m, a) => o[m].apply(o, a),
@@ -581,6 +584,18 @@ class CompiledApp {
           setValue(wasmArray, wasmArrayOffset + i, jsArray[jsArrayOffset + i]);
         }
       },
+      _1505: (jsArray, jsArrayOffset, wasmArray, wasmArrayOffset, length) => {
+        const getValue = dartInstance.exports.$wasmI16ArrayGet;
+        for (let i = 0; i < length; i++) {
+          jsArray[jsArrayOffset + i] = getValue(wasmArray, wasmArrayOffset + i);
+        }
+      },
+      _1506: (jsArray, jsArrayOffset, wasmArray, wasmArrayOffset, length) => {
+        const setValue = dartInstance.exports.$wasmI16ArraySet;
+        for (let i = 0; i < length; i++) {
+          setValue(wasmArray, wasmArrayOffset + i, jsArray[jsArrayOffset + i]);
+        }
+      },
       _1507: (jsArray, jsArrayOffset, wasmArray, wasmArrayOffset, length) => {
         const getValue = dartInstance.exports.$wasmI32ArrayGet;
         for (let i = 0; i < length; i++) {
@@ -625,6 +640,7 @@ class CompiledApp {
         return s;
       },
       _1516: x0 => x0.index,
+      _1517: x0 => x0.groups,
       _1518: x0 => x0.flags,
       _1519: x0 => x0.multiline,
       _1520: x0 => x0.ignoreCase,
